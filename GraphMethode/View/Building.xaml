@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="GraphMethode.View.Building"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
+             xmlns:local="clr-namespace:GraphMethode.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <DockPanel>
+        <Label DockPanel.Dock="Top" FontSize="35" Margin="10" FontWeight="DemiBold" FontFamily="Century Gothic">Раздел построения</Label>
+        <DockPanel>
+            <DockPanel Width="405">
+                <materialDesign:Card Margin="5" DockPanel.Dock="Top" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="189">
+                    <DataGrid>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="IP Адрес" Width="*"/>
+                            <DataGridTextColumn Header="Дата нахождения"  Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </materialDesign:Card>
+                <materialDesign:Card Margin="5,0,5,5" DockPanel.Dock="Top" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <DataGrid>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Пары"  Width="*"/>
+                            <DataGridTextColumn Header="Дата нахождения"  Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </materialDesign:Card>
+            </DockPanel>
+            <materialDesign:Card Margin="5">
+                
+            </materialDesign:Card>
+        </DockPanel>
+    </DockPanel>
+</UserControl>

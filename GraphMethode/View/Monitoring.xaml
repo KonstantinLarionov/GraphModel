@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="GraphMethode.View.Monitoring"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
+             xmlns:local="clr-namespace:GraphMethode.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="701" d:DesignWidth="984">
+    <DockPanel>
+        <materialDesign:Card Margin="5" DockPanel.Dock="Right"  Width="254">
+            <StackPanel>
+                <Label Content="Управление" FontSize="20" HorizontalAlignment="Center" FontWeight="DemiBold"/>
+                <StackPanel Margin="5,50,5,0">
+                    <Label FontSize="15">Введите кол.во машин:</Label>
+                    <TextBox HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1" CaretBrush="Red" SelectionBrush="Red"/>
+                </StackPanel>
+                <StackPanel Margin="5,10,5,10" >
+                    <Label FontSize="15">Укажите файл для мониторинга:</Label>
+                    <DockPanel>
+                        <Button Margin="2,0" DockPanel.Dock="Right" Content="..." BorderBrush="Red" Background="White" Foreground="Black"/>
+                        <TextBox IsReadOnly="True" BorderThickness="1" />
+                    </DockPanel>
+                </StackPanel>
+                <StackPanel Margin="5,0" >
+                    <Button Background="White" BorderBrush="Red" Content="Найти все вхождения" Foreground="Black"/>
+                </StackPanel>
+                <StackPanel Margin="5,270" >
+                    <GroupBox BorderBrush="Red"  Header="Статус мониторинга" Background="White" Foreground="Black" FontSize="16" FontWeight="Bold" Height="154" BorderThickness="2" >
+                        <GroupBox.Resources>
+                            <ResourceDictionary>
+                                <ResourceDictionary.MergedDictionaries>
+                                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Red.xaml"/>
+                                </ResourceDictionary.MergedDictionaries>
+                            </ResourceDictionary>
+                        </GroupBox.Resources>
+                        <StackPanel>
+                            <DockPanel>
+                                <Label>Всего введено:</Label>
+                                <Label Name="countAll">0</Label>
+                            </DockPanel>
+                            <DockPanel>
+                                <Label>Всего найдено:</Label>
+                                <Label Name="countFound">0</Label>
+                            </DockPanel>
+                            <DockPanel>
+                                <Label>Файл:</Label>
+                                <Label Name="nameFile">Not insert file</Label>
+                            </DockPanel>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </StackPanel>
+        </materialDesign:Card>
+        <materialDesign:Card Margin="0,5">
+            <StackPanel>
+                <Label FontSize="35" Margin="10" FontWeight="DemiBold" FontFamily="Century Gothic">Раздел мониторинга</Label>
+                <DataGrid Name="ips">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="IP Адрес" Width="*"/>
+                        <DataGridTextColumn Header="Последняя дата нахождения" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </materialDesign:Card>
+    </DockPanel>
+</UserControl>
