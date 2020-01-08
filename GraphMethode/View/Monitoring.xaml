@@ -14,17 +14,17 @@
                 <Label Content="Управление" FontSize="20" HorizontalAlignment="Center" FontWeight="DemiBold"/>
                 <StackPanel Margin="5,50,5,0">
                     <Label FontSize="15">Введите кол.во машин:</Label>
-                    <TextBox HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1" CaretBrush="Red" SelectionBrush="Red"/>
+                    <TextBox KeyUp="count_KeyUp" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1" Name="count" CaretBrush="Red" SelectionBrush="Red"/>
                 </StackPanel>
                 <StackPanel Margin="5,10,5,10" >
                     <Label FontSize="15">Укажите файл для мониторинга:</Label>
                     <DockPanel>
-                        <Button Margin="2,0" DockPanel.Dock="Right" Content="..." BorderBrush="Red" Background="White" Foreground="Black"/>
-                        <TextBox IsReadOnly="True" BorderThickness="1" />
+                        <Button Click="Button_Click" Margin="2,0" DockPanel.Dock="Right" Content="..." BorderBrush="Red" Background="White" Foreground="Black"/>
+                        <TextBox Name="path" IsReadOnly="True" BorderThickness="1" />
                     </DockPanel>
                 </StackPanel>
                 <StackPanel Margin="5,0" >
-                    <Button Background="White" BorderBrush="Red" Content="Найти все вхождения" Foreground="Black"/>
+                    <Button Click="Button_Click_1" Background="White" BorderBrush="Red" Content="Найти все вхождения" Foreground="Black"/>
                 </StackPanel>
                 <StackPanel Margin="5,270" >
                     <GroupBox BorderBrush="Red"  Header="Статус мониторинга" Background="White" Foreground="Black" FontSize="16" FontWeight="Bold" Height="154" BorderThickness="2" >
@@ -56,10 +56,10 @@
         <materialDesign:Card Margin="0,5">
             <StackPanel>
                 <Label FontSize="35" Margin="10" FontWeight="DemiBold" FontFamily="Century Gothic">Раздел мониторинга</Label>
-                <DataGrid Name="ips">
+                <DataGrid Name="ips" >
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="IP Адрес" Width="*"/>
-                        <DataGridTextColumn Header="Последняя дата нахождения" Width="*"/>
+                        <DataGridTextColumn Header="IP Адрес" Width="*" Binding="{Binding IP}"/>
+                        <DataGridTextColumn Header="Последняя дата нахождения" Width="*" Binding="{Binding LastDate}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>

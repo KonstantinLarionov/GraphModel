@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GraphMethode.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +21,27 @@ namespace GraphMethode.View
     /// </summary>
     public partial class Analitics : UserControl
     {
+        private AnaliticsVM VM { get; set; }
         public Analitics()
         {
             InitializeComponent();
+            VM = new AnaliticsVM();
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            VM.ShowPacks(data);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MonitoringVM.Packages.OrderBy(x=>x.DateTime);
+            VM.ShowStepLine();
         }
     }
 }

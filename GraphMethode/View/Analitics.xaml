@@ -6,21 +6,23 @@
              xmlns:local="clr-namespace:GraphMethode.View"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
     <DockPanel>
         <Label DockPanel.Dock="Top" FontSize="35" Margin="10" FontWeight="DemiBold" FontFamily="Century Gothic">Раздел аналитики</Label>
         <DockPanel LastChildFill="False" DockPanel.Dock="Bottom" Height="50">
             <Label Margin="5,0" FontSize="20" Content="Всего связей:"/>
             <Label Width="61"></Label>
+            <Button Content="Сортировать и вывести" Margin="5,9" Width="255" Background="White" BorderBrush="Black" Foreground="#DD000000" Click="Button_Click"/>
             <Label  Margin="5,0" FontSize="20" DockPanel.Dock="Right" Content="не готово"/>
             <Label   Margin="5,0" FontSize="20" DockPanel.Dock="Right" Content="Построение графа:"/>
         </DockPanel>
         <DockPanel >
             <materialDesign:Card Margin="0,5,5,5" Width="405" >
-                <DataGrid SelectionChanged="DataGrid_SelectionChanged">
+                <DataGrid Name="data" SelectionChanged="DataGrid_SelectionChanged" AutoGenerateColumns="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Пара" Width="*"/>
-                        <DataGridTextColumn Header="Дата контакта" Width="*"/>
+                        <DataGridTextColumn Header="Откуда" Width="*" Binding="{Binding From}"/>
+                        <DataGridTextColumn Header="Куда" Width="*" Binding="{Binding To}"/>
+                        <DataGridTextColumn Header="Дата контакта" Width="*"  Binding="{Binding DateTime}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </materialDesign:Card>
